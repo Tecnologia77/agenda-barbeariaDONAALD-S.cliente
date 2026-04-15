@@ -1,0 +1,229 @@
+:root {
+    --gold: #d4af37;
+    --dark: #121212;
+    --grey: #1e1e1e;
+    --accent: #25d366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== BODY CORRIGIDO ===== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica;
+    color: white;
+    min-height: 100vh;
+
+    background-image: url('fundo-barbearia.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+}
+
+/* ===== OVERLAY ===== */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 0;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.app-container {
+    position: relative;
+    z-index: 1;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 15px;
+    min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.main-logo {
+    width: 80px;
+    filter: drop-shadow(0 0 10px var(--gold));
+}
+
+h1 {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+/* ===== PROGRESS BAR ===== */
+.progress-container {
+    background: #333;
+    height: 4px;
+    border-radius: 2px;
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    background: var(--gold);
+    height: 100%;
+    width: 25%;
+    transition: 0.4s;
+}
+
+/* ===== STEPS ===== */
+.step-container {
+    display: none;
+}
+
+.step-container.active {
+    display: block;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== SERVIÇOS ===== */
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 100px;
+}
+
+.service-item {
+    background: var(--grey);
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #333;
+    cursor: pointer;
+}
+
+.service-item.selected {
+    border-color: var(--gold);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* ===== FOOTER (CORRIGIDO MOBILE) ===== */
+.footer-action {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background: var(--grey);
+    padding: 15px;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===== BOTÕES ===== */
+.btn-primary {
+    background: var(--gold);
+    color: #000;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-confirm {
+    background: var(--accent);
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* ===== HORÁRIOS ===== */
+.hours-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.hour-btn {
+    background: var(--grey);
+    border: 1px solid #333;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hour-btn.selected {
+    background: var(--gold);
+    color: black;
+    border-color: var(--gold);
+}
+
+.hour-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+/* ===== INPUTS ===== */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 480px) {
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    .main-logo {
+        width: 60px;
+    }
+
+    .hours-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .btn-primary {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .footer-action {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}

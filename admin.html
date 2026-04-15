@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Barbeiro | DONAALD'S</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="app-container">
+
+<header style="text-align:center;">
+    <img src="logo-donaalds.png" class="main-logo" style="width:100px;">
+    <h1>Painel do Barbeiro</h1>
+</header>
+
+<!-- DASHBOARD -->
+<div class="dashboard">
+
+    <div class="card">
+        <p>Cortes Hoje</p>
+        <h2 id="cortes-dia">0</h2>
+    </div>
+
+    <div class="card">
+        <p>Cortes no Mês</p>
+        <h2 id="cortes-mes">0</h2>
+    </div>
+
+    <div class="card destaque">
+        <p>Faturamento Mês</p>
+        <h2 id="faturamento-mes">R$ 0,00</h2>
+    </div>
+
+</div>
+
+<!-- BLOQUEAR DATA -->
+<div style="margin-top:20px;">
+    <h3>Bloquear Dia</h3>
+    <input type="date" id="block-date">
+    <button onclick="bloquearData()" class="btn-primary" style="background:red; margin-top:10px;">
+        Bloquear Dia
+    </button>
+    <button onclick="desbloquearData()" style="background:green; margin-top:10px;">
+    Desbloquear Dia
+</button>
+</div>
+
+<!-- LISTA -->
+<h3 style="margin-top:30px;">Agendamentos</h3>
+<div id="lista-agendamentos"></div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+<script src="admin.js"></script>
+
+</body>
+</html>

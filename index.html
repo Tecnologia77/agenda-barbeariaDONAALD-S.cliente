@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DONAALD'S BARBEARIA | Agendamento</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="app-container">
+
+<header>
+    <img src="logo-donaalds.png" class="main-logo">
+    <h1>DONAALD'S BARBEARIA</h1>
+    <span class="badge">Aberto agora</span>
+</header>
+
+<div class="progress-container">
+    <div class="progress-bar" id="progress"></div>
+</div>
+
+<!-- STEP 1 -->
+<div class="step-container active" id="step1">
+    <h2>Selecione os Serviços</h2>
+
+    <div id="services-grid"></div>
+
+    <div class="footer-action">
+        <div>
+            <span id="items-count">0 selecionados</span><br>
+            <span id="total-price">R$ 0,00</span>
+        </div>
+
+        <button onclick="nextStep(2)" class="btn-primary">Continuar</button>
+    </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="step-container" id="step2">
+    <h2>Escolha o Dia</h2>
+
+    <input type="date" id="date-picker">
+
+    <div class="footer-action">
+        <button onclick="prevStep(1)">Voltar</button>
+        <button onclick="nextStep(3)" class="btn-primary">Ver horários</button>
+    </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step-container" id="step3">
+    <h2>Horários Disponíveis</h2>
+
+    <div id="hours-grid" class="hours-grid"></div>
+
+    <div class="footer-action">
+        <button onclick="prevStep(2)">Voltar</button>
+        <button onclick="nextStep(4)" class="btn-primary">Revisar</button>
+    </div>
+</div>
+
+<!-- STEP 4 -->
+<div class="step-container" id="step4">
+    <h2>Finalizar</h2>
+
+    <div id="summary"></div>
+
+    <input type="text" id="client-name" placeholder="Seu nome">
+    <input 
+    type="tel" 
+    id="client-phone" 
+    value="55"
+    placeholder="5511999999999"
+    oninput="formatarTelefone(this)"
+>
+
+    <button id="btn-finish" class="btn-confirm">Confirmar</button>
+</div>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
