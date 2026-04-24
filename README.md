@@ -16,4 +16,3 @@ Este é o módulo de interface com o cliente da **DONAALD'S Barbearia**. Uma sol
 * **Hospedagem:** Deploy em infraestrutura otimizada.
 
 ---
-*Desenvolvido por Gustavo Izaias (Tecnologia77)*
